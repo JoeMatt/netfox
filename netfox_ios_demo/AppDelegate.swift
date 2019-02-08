@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import netfox_ios
+import netfox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
