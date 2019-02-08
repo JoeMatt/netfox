@@ -389,12 +389,7 @@ extension String
 
 @objc private extension URLSessionConfiguration
 {
-    private static var firstOccurrence = true
-    
     static func implementNetfox() {
-        guard firstOccurrence else { return }
-        firstOccurrence = false
-
         // First let's make sure setter: URLSessionConfiguration.protocolClasses is de-duped
         // This ensures NFXProtocol won't be added twice
         swizzleProtocolSetter()
@@ -468,6 +463,6 @@ extension String
 public extension NSNotification.Name {
     static let NFXDeactivateSearch = Notification.Name("NFXDeactivateSearch")
     static let NFXReloadData = Notification.Name("NFXReloadData")
-    public static let NFXAddedModel = Notification.Name("NFXAddedModel")
-    public static let NFXClearedModels = Notification.Name("NFXClearedModels")
+    static let NFXAddedModel = Notification.Name("NFXAddedModel")
+    static let NFXClearedModels = Notification.Name("NFXClearedModels")
 }
