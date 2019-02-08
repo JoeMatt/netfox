@@ -224,15 +224,16 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
             return .JSON
         }
         
-        if (contentType == "application/xml") || (contentType == "text/xml")  {
+        if ( ["application/xml", "text/xml", "application/soap+xml"].contains(where: { return contentType.lowercased().hasPrefix($0)
+        }))  {
             return .XML
         }
         
-        if contentType == "text/html" {
+        if contentType.lowercased().hasPrefix("text/html") {
             return .HTML
         }
         
-        if contentType.hasPrefix("image/") {
+        if contentType.lowercased().hasPrefix("image/") {
             return .IMAGE
         }
         
